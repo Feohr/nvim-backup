@@ -90,3 +90,6 @@ lua require('treesitter')
 lua require('lsp')
 " Dap
 lua require('dap_config')
+
+" Syntax highlight
+au BufRead,BufNewFile *.tl set filetype=tulang
