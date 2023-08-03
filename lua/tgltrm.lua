@@ -1,9 +1,3 @@
-local opts = {noremap = true, silent = true}
-
-local function borderclr()
-    return require('catppuccin.palettes.macchiato').blue
-end
-
 require("toggleterm").setup{
     start_in_insert = false,
     close_on_exit = true,
@@ -11,7 +5,7 @@ require("toggleterm").setup{
     direction = 'float',
     highlights = {
         FloatBorder = {
-            guifg = tostring(borderclr()),
+            guifg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("FloatBorder")), "fg#")
         },
     },
     float_opts = {
@@ -21,4 +15,8 @@ require("toggleterm").setup{
     },
 }
 
+-- Keymaps
+local opts = {noremap = true, silent = true}
+
 vim.api.nvim_set_keymap("n", "<leader>te", ":ToggleTerm<CR>", opts)
+vim.api.nvim_set_keymap("t", "<leader><SPACE>", "<C-\\><C-n>", opts)

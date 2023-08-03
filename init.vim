@@ -1,8 +1,24 @@
 set nocompatible
-filetype off
 filetype plugin indent on
+
+" Important!!
+if has('termguicolors')
+    set termguicolors
+endif
+if !exists('+colorcolumn')
+  finish
+endif
+
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+
 " debugger
 packadd termdebug
+
+" Python support
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'
+let g:python2_host_prog = '/usr/bin/python2'
 
 " set the runtime path for vundle
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -22,6 +38,9 @@ set hidden
 set backspace=indent,eol,start
 " For enumeration of each line
 set number
+" For text wrap
+set wrap
+set linebreak
 " To get 4 spaces on each tab
 set tabstop=4 softtabstop=4 expandtab shiftwidth=4 smarttab
 " To remove annoying scratch window
@@ -33,39 +52,8 @@ set splitbelow
 set list
 set listchars=trail:.,precedes:«,extends:»,tab:——-,nbsp:␣
 " Color column.
-let &colorcolumn=join(range(100,999),",")
+let &colorcolumn=99
 
-" Key Mapping
-nnoremap <C-n> :NvimTreeCollapse<CR>
-nnoremap <C-t> :NvimTreeToggle<CR>
-nnoremap <C-f> :NvimTreeFindFile<CR>
-nnoremap <A-n> :NvimTreeFocus<CR>
-nnoremap <A-t> :tabclose<CR>
-inoremap jj <Esc>
-inoremap kk <Esc>
-inoremap kk <Plug>(PearTreeFinishExpansion)
-inoremap jj <Plug>(PearTreeFinishExpansion)
-nnoremap <SPACE><CR> O<Esc>
-noremap <CR> o<Esc>
-tnoremap <leader><SPACE> <C-\><C-n>
-nnoremap <leader>gr :Telescope live_grep<CR>
-nnoremap <leader>gc :Telescope git_commits<CR>
-nnoremap tn :tabnew<CR>
-
-" Important!!
-if has('termguicolors')
-    set termguicolors
-endif
-if !exists('+colorcolumn')
-  finish
-endif
-
-" Error highliting customization
-highlight SpellBad cterm=underline
-
-" Make NERDTree pretty
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
 " To disable dot repeatable
 let g:pear_tree_reapeatable_expand = 0
 let g:termdebugger = "rust-gdb"
@@ -90,6 +78,10 @@ lua require('treesitter')
 lua require('lsp')
 " Dap
 lua require('dap_config')
+" Main keymaps
+lua require('keymaps')
+" Telescope
+lua require('telescope')
 
 " Syntax highlight
 au BufRead,BufNewFile *.tl set filetype=tulang

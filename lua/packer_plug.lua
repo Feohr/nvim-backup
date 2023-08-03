@@ -4,6 +4,8 @@ return require('packer').startup(function()
     use 'MunifTanjim/nui.nvim'
     -- Plugin for Github support
     use 'tpope/vim-fugitive'
+    -- GruvBox
+    use 'morhetz/gruvbox'
     -- Installing NvimTree
     use {
         'nvim-tree/nvim-tree.lua',
@@ -65,4 +67,5 @@ return require('packer').startup(function()
             "mfussenegger/nvim-dap",
         }
     }
+    use 'xiyaowong/transparent.nvim'
 end)

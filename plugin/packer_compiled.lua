@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/rehaanm/.local/share/nvim/site/pack/packer/start/ale",
     url = "https://github.com/dense-analysis/ale"
   },
+  catppuccin = {
+    loaded = true,
+    path = "/home/rehaanm/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
+  },
   everforest = {
     loaded = true,
     path = "/home/rehaanm/.local/share/nvim/site/pack/packer/start/everforest",
@@ -88,6 +93,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rehaanm/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
     url = "https://github.com/projekt0n/github-nvim-theme"
+  },
+  gruvbox = {
+    loaded = true,
+    path = "/home/rehaanm/.local/share/nvim/site/pack/packer/start/gruvbox",
+    url = "https://github.com/morhetz/gruvbox"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
